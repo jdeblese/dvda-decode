@@ -1,0 +1,24 @@
+# DVD-Audio Track Extraction Tools
+
+Tools to extract the high-rate MLP or LPCM-encoded tracks
+from unencrypted DVD-A .AOB files.
+
+## Description
+
+*extract_tracks* will read an ATS_*.IFO, parse out the
+tracks in each title, locate these tracks in the relevant
+AOB file, and copy these out into separate MPEG files. The
+MPEGs should contain a single private stream, either LPCM
+or MLP, which can be converted and downmixed as needed.
+The UDF file offset map is required, as track locations
+are specified as sector offsets on disc.
+
+*offsets* will examine the AUDIO_TS/ folder of a DVD-A
+and write out a binary file containing the offset and
+file size (in DVD sectors) of each file therein. Requires
+the disc to be present and mounted.
+
+## Requirements
+
+* libdvdread, for defines and the UDF* functions
+* POSIX OS, but porting should not be difficult
