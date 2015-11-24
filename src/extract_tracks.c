@@ -496,10 +496,7 @@ int main(int argc, char **argv)
 						strcat(outfile, "/");
 					sprintf(outfilefmt, OUTFILEFMT, titleno, j+1);
 					strcat(outfile, outfilefmt);
-					if (ifocell.flags & 0x00000100)
-						strcat(outfile, "mlp");
-					else
-						strcat(outfile, "lpcm");
+					strcat(outfile, "mpeg");
 					int outfd = open(outfile, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 					// Find the file containing this track
 					while (trackoffset >= map->offset + map->sectors && map->next)
